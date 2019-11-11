@@ -1,0 +1,25 @@
+<main class="container">
+  <section class="row">
+    <div class="col-sm-12 col-md-6"
+    *ngFor="let item of moviesPopular?.results">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <a href="/movie-detail/{{ item.id }} " class="img-movie">
+              <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{ item.poster_path }}" class="card-img"
+                alt="...">
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <p class="card-text"><small class="text-muted">Release date {{ item.release_date }}</small></p>
+              <p class="card-text">{{ item.overview }}...</p>
+              <p class="card-text more-info"><small class="text-muted">Release date {{ item.release_date }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

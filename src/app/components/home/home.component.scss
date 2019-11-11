@@ -1,0 +1,14 @@
+.more-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.card {
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+
+  }
+}

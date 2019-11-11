@@ -1,0 +1,75 @@
+<main>
+  <div class="backdrop" [ngStyle]="getBackground()"></div>
+  <div class="container-fluid">
+    <!-- main movie content -->
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-8">
+        <div class="card mb-3 card-details">
+          <div class="loading" *ngIf="!movieDetails">
+            loading ...
+          </div>
+          <div class="row no-gutters" *ngIf="movieDetails">
+            <div class="col-md-4">
+              <a href="/movie-detail/" class="img-movie">
+                <img
+                  srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ movieDetails.poster_path }} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{ movieDetails.poster_path }} 2x"
+                  sizes="auto" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ movieDetails.poster_path }}"
+                  class="" alt="título" class="card-img" alt="...">
+              </a>
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ movieDetails.title }} <small>({{movieDetails.releaseYear}})</small></h5>
+                <div class="card-tool-bar">
+                  <div class="main-rating">
+                    <div class="value-rating">{{averagePercent}}%</div>
+                    <svg viewBox="0 0 36 36" class="circular-chart">
+                      <path class="circle-back" stroke-dasharray="100, 100" d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831" />
+
+                      <path class="circle" [attr.stroke-dasharray]="averagePercentClass" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+
+                    </svg>
+                  </div>
+                </div>
+                <p class="card-text">{{ movieDetails.overview }}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="row menu-itens">
+      <div class="col-md-12">menu items</div>
+    </section>
+    <section class="row extra-info">
+      <div class="col-sm-12 col-md-9 p-4">
+        <div class="row justify-content-center">
+          <div class="col-2" *ngFor="let item of movieDetails?.cast?.cast | slice:0:5">
+            <div class="card card-cast">
+              <img src="https://image.tmdb.org/t/p//w138_and_h175_face{{ item.profile_path }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <div class="card-text"><strong>{{ item.character }}</strong></div>
+                <p class="card-text">{{ item.name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-sm-12 col-md-3 info-genres">
+        <h3>Facts</h3>
+        <div class="genres">
+          <p class="title h4">Genres</p>
+          <button class="btn btn-secondary" (click)="getMoviesByGenre(item.id, item.name)" *ngFor="let item of movieDetails?.genres">{{ item.name }}</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
