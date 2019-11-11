@@ -1,9 +1,53 @@
-.header {
+header {
   position: fixed;
   width: 100%;
   box-sizing: border-box;
   height: 125px;
-  background-color: #ccc;
+  background-color: #081c24;
   padding: 5px;
   z-index: 5;
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .content {
+    height: 111px;
+    margin: 0 auto;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    will-change: height;
+    color: #fff;
+
+    nav {
+      .left-content {
+        ul.primary {
+          display: flex;
+          align-items: center;
+          font-size: 1em;
+          height: 72px;
+          box-sizing: border-box;
+          list-style-type: none;
+          line-height: 1.4em;
+
+          li {
+            text-align: right;
+            padding: 10px 0;
+            margin-right: 30px;
+            &.logo {
+              position: relative;
+              top: 3px;
+              width: 81px;
+              height: 72px;
+              padding-top: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

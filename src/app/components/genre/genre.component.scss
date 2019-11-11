@@ -17,6 +17,10 @@
   }
 }
 
+main {
+  padding-top: 100px;
+}
+
 section {
   &.movies-list {
     padding-top: 30px;
@@ -49,6 +53,8 @@ div.header.gradient {
       left: 0;
       z-index: 2;
       padding: 20px 0;
+      justify-content: center;
+      display: flex;
 
       div.content {
         color: #fff;
