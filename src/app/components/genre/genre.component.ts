@@ -9,9 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
-  moviesPopular: Movies;
+  moviesList: any;
   genreId: string;
-  movieDetails: any;
   averagePercent: number;
   averagePercentClass: string;
   genre: string[];
@@ -28,10 +27,10 @@ export class GenreComponent implements OnInit {
 
       this.movieService.getMovieByGenre(this.genreId).then(res => {
         console.log(res);
-        this.moviesPopular = res;
-        // this.movieDetails.releaseYear = new Date(this.movieDetails.release_date).getFullYear();
-        // this.averagePercent = (this.movieDetails.vote_average * 10);
-        // this.averagePercentClass = `${this.averagePercent}, 100`;
+        this.moviesList = res;
+        this.moviesList.releaseYear = new Date(this.moviesList.release_date).getFullYear();
+        this.averagePercent = (this.moviesList.vote_average * 10);
+        this.averagePercentClass = `${this.averagePercent}, 100`;
       });
     });
   }
@@ -39,12 +38,12 @@ export class GenreComponent implements OnInit {
   async getMoviePopular() {
     await this.movieService.getMovieByGenre(28).then(res => {
       console.log(res);
-      this.moviesPopular = res;
-      this.moviesPopular.results.map(resMap => {
+      this.moviesList = res;
+      this.moviesList.results.map(resMap => {
         resMap.overview = resMap.overview.split(' ').splice(0, 20).join(' ');
       });
     });
-    console.log(this.moviesPopular);
+    console.log(this.moviesList);
   }
 
 }

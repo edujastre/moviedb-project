@@ -1,5 +1,17 @@
-.footer {
+footer {
+  margin-bottom: -28px;
   height: 500px;
-  background-color: green;
+  background: url(https://www.themoviedb.org/assets/2/v4/footers_v2/TheMatrix-bb0fe85661c3587a83566343066fe017ffea28e9823a5ded42f74b599f7d12d6.jpg),
+    radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%);
   color: #ffffff;
+
+  height: 450px;
+  box-sizing: border-box;
+  padding: 0;
+  // background-image: radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
 }
