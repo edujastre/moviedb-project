@@ -14,6 +14,62 @@
   transition: all 0.5s;
   &:hover {
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+  }
+}
 
+section {
+  &.movies-list {
+    padding-top: 30px;
+    max-width: 80%;
+    display: flex;
+    margin: 10px auto;
+  }
+}
+
+// header
+
+div.header.gradient {
+  width: 100%;
+  z-index: 0;
+  &.green {
+    background-image: radial-gradient(
+      at 30% top,
+      rgba(7, 64, 52, 1) 0%,
+      rgba(8, 28, 36, 1) 70%
+    );
+
+    .inner_content {
+      background-image: url("https://www.themoviedb.org/assets/2/v4/account_pipes/green-79a9507a08a7e5a9b8c643a69026fe46191c45972cb45b944ab4b5f8a9110b03.svg");
+
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center -250px;
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      padding: 20px 0;
+
+      div.content {
+        color: #fff;
+        width: 1000px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        span.flex {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          align-content: center;
+          .inner_flex {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+    }
   }
 }

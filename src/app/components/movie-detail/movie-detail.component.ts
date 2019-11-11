@@ -40,7 +40,7 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getMoviesByGenre(id, name) {
-    // name = name.replace(' ', '-');
+    name = name.replace(' ', '-');
     this.router.navigateByUrl(`genre/${id}-${name}`);
   }
 

@@ -15,7 +15,7 @@ export class GenreComponent implements OnInit {
   averagePercent: number;
   averagePercentClass: string;
   genre: string[];
-  genreName: string;
+  genreName: any;
 
   constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
@@ -23,7 +23,7 @@ export class GenreComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.genre = params.get('genre-id').split('-');
       this.genreId = this.genre[0];
-      this.genreName = this.genre[1].replace(' ', '-');
+      this.genreName = this.genre.slice(1).join(' ');
       console.log(this.genreId);
 
       this.movieService.getMovieByGenre(this.genreId).then(res => {
