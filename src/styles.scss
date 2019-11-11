@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* custom.scss */
+
+/* import the necessary Bootstrap files */
+// @import "./bootstrap/scss/bootstrap.scss";
+// @import "bootstrap/variables";
+
+// /* make changes to the !default Bootstrap variables */
+// // $body-color: green;
+
+// /* finally, import Bootstrap to set the changes! */
+// @import "bootstrap";
+main {
+  padding-top: 100px;
+}
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  img {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
