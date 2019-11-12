@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { GenreComponent } from './components/genre/genre.component';
 import { HttpClientModule  } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HttpClientModule  } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

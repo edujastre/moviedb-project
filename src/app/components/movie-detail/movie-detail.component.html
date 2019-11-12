@@ -8,7 +8,8 @@
           <div class="loading" *ngIf="!movieDetails">
             loading ...
           </div>
-          <div class="row no-gutters" *ngIf="movieDetails">
+          <div class="row no-gutters" [style.background-color]="'rgba(' + colorBackdrop + ', 1)'" [style.color]="'#fff'"
+            *ngIf="movieDetails">
             <div class="col-md-4">
               <a href="/movie-detail/" class="img-movie">
                 <img
@@ -21,23 +22,43 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{ movieDetails.title }} <small>({{movieDetails.releaseYear}})</small></h5>
-                <div class="card-tool-bar">
-                  <div class="main-rating">
-                    <div class="value-rating">{{averagePercent}}%</div>
-                    <svg viewBox="0 0 36 36" class="circular-chart">
-                      <path class="circle-back" stroke-dasharray="100, 100" d="M18 2.0845
+                <div class="card-tool-bar row">
+                  <div class="col-1 p-0">
+                    <div class="main-rating">
+                      <div class="value-rating">{{averagePercent}}%</div>
+                      <svg viewBox="0 0 36 36" class="circular-chart">
+                        <path class="circle-back" stroke-dasharray="100, 100" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-                      <path class="circle" [attr.stroke-dasharray]="averagePercentClass" d="M18 2.0845
+                        <path class="circle" [attr.stroke-dasharray]="averagePercentClass" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831" />
 
-                    </svg>
+                      </svg>
+                    </div>
                   </div>
+                  <div class="col-2 m-0 sub-title">
+                    <div class="text">User<br>Score</div>
+                  </div>
+
+                  <div class="icons col-1">
+                    <fa-icon [icon]="faList"></fa-icon>
+                  </div>
+                  <div class="icons col-1">
+                    <fa-icon [icon]="faHeart"></fa-icon>
+                  </div>
+                  <div class="icons col-1">
+                    <fa-icon [icon]="faBookmark"></fa-icon>
+                  </div>
+                  <div class="icons col-1 star">
+                    <fa-icon [icon]="faStar"></fa-icon>
+                  </div>
+
                 </div>
+
                 <p class="card-text">{{ movieDetails.overview }}</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
               </div>
             </div>
           </div>
@@ -50,11 +71,12 @@
       <div class="col-md-12">menu items</div>
     </section>
     <section class="row extra-info">
-      <div class="col-sm-12 col-md-9 p-4">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
         <div class="row justify-content-center">
-          <div class="col-2" *ngFor="let item of movieDetails?.cast?.cast | slice:0:5">
+          <div class="col-sm-4 col-md-4 col-lg-2 mb-1" *ngFor="let item of movieDetails?.cast?.cast | slice:0:5">
             <div class="card card-cast">
-              <img src="https://image.tmdb.org/t/p//w138_and_h175_face{{ item.profile_path }}" class="card-img-top" alt="...">
+              <img src="https://image.tmdb.org/t/p//w138_and_h175_face{{ item.profile_path }}" class="card-img-top"
+                alt="...">
               <div class="card-body">
                 <div class="card-text"><strong>{{ item.character }}</strong></div>
                 <p class="card-text">{{ item.name }}</p>
@@ -67,7 +89,8 @@
         <h3>Facts</h3>
         <div class="genres">
           <p class="title h4">Genres</p>
-          <button class="btn btn-secondary" (click)="getMoviesByGenre(item.id, item.name)" *ngFor="let item of movieDetails?.genres">{{ item.name }}</button>
+          <button class="btn btn-secondary" (click)="getMoviesByGenre(item.id, item.name)"
+            *ngFor="let item of movieDetails?.genres">{{ item.name }}</button>
         </div>
       </div>
     </section>
