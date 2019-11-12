@@ -19,9 +19,11 @@ export interface Result {
   original_title: string;
   genre_ids: number[];
   title: string;
+  original_name: string;
   vote_average: number;
   overview: string;
   release_date: string;
+  first_air_date: string;
 
   cast: {
     cast: Cast[];

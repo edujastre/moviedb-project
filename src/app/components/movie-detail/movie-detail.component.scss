@@ -1,15 +1,19 @@
-.card-title {
-  font-size: 2.4em;
-  text-transform: uppercase;
-}
+.card {
+  border: 0;
+  .card-title {
+    font-size: 2.4em;
+    text-transform: uppercase;
+  }
 
-.card-cast {
-  img {
-    min-height: 250px;
+  .card-cast {
+    img {
+      min-height: 250px;
+      transition: ease-in 1s;
+    }
   }
 }
 main {
-  padding-top: 125px;
+  padding-top: 175px;
   .backdrop {
     content: "";
     display: block;
@@ -64,36 +68,48 @@ main {
     .sub-title {
       align-self: center;
       font-weight: bold;
+      position: absolute;
+      left: 80px;
+      top: 20px;
     }
 
     .icons {
-      width: 50px;
-      height: 65px;
-      margin: 10px;
+      // width: 50px;
+      // height: 65px;
+      // margin: 10px;
       align-self: center;
-      border: 2px solid #fff;
-      border-radius: 50%;
-      padding: 20px 24px;
-      background-color: rgba(0, 0, 0, 0.5);
-      transition: all 0.5s;
+      // border: 2px solid #fff;
+      // border-radius: 50%;
+      // padding: 20px 24px;
+      // background-color: rgba(0, 0, 0, 0.5);
+      // transition: all 0.5s;
 
-      &.star {
-        padding: 20px 22px;
-      }
+      // &.star {
+      //   padding: 20px 22px;
+      // }
 
-      &:hover {
-        background-color: #fff;
-        color: rgba(0, 0, 0, 0.8)
-      }
+      // &:hover {
+      //   background-color: #fff;
+      //   color: rgba(0, 0, 0, 0.8);
+      // }
 
       fa-icon {
         border-radius: 50%;
+        border: 2px solid;
+        padding: 25px;
+        align-self: center;
 
-        .svg-inline--fa.fa-w-12 {
-          width: 1em !important;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all 0.5s;
+
+        &:hover {
+          background-color: #fff;
+          color: rgba(0, 0, 0, 0.8);
         }
 
-
+        &.bookmark {
+          padding: 25px 28px;
+        }
       }
     }
 
@@ -143,13 +159,20 @@ main {
       background-color: #fff;
       display: flex;
       justify-content: center;
+      margin-bottom: -30px;
+      z-index: 10;
+      position: relative;
 
       .info-genres {
         background-color: #d7d7d7;
-        height: 200px;
+        height: auto;
 
         button ~ button {
           margin-left: 10px;
+        }
+
+        li {
+          list-style: none;
         }
       }
     }

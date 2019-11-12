@@ -11,7 +11,7 @@
           <div class="row no-gutters" [style.background-color]="'rgba(' + colorBackdrop + ', 1)'" [style.color]="'#fff'"
             *ngIf="movieDetails">
             <div class="col-md-4">
-              <a href="/movie-detail/" class="img-movie">
+              <a class="img-movie">
                 <img
                   srcset="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ movieDetails.poster_path }} 1x, https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{ movieDetails.poster_path }} 2x"
                   sizes="auto" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ movieDetails.poster_path }}"
@@ -23,7 +23,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{ movieDetails.title }} <small>({{movieDetails.releaseYear}})</small></h5>
                 <div class="card-tool-bar row">
-                  <div class="col-1 p-0">
+                  <div class="col-md-3 p-0 rating">
                     <div class="main-rating">
                       <div class="value-rating">{{averagePercent}}%</div>
                       <svg viewBox="0 0 36 36" class="circular-chart">
@@ -37,21 +37,22 @@
 
                       </svg>
                     </div>
-                  </div>
-                  <div class="col-2 m-0 sub-title">
-                    <div class="text">User<br>Score</div>
+
+                    <div class="sub-title">
+                      <div class="text">User<br>Score</div>
+                    </div>
                   </div>
 
-                  <div class="icons col-1">
+                  <div class="icons col-2">
                     <fa-icon [icon]="faList"></fa-icon>
                   </div>
-                  <div class="icons col-1">
+                  <div class="icons col-2">
                     <fa-icon [icon]="faHeart"></fa-icon>
                   </div>
-                  <div class="icons col-1">
-                    <fa-icon [icon]="faBookmark"></fa-icon>
+                  <div class="icons col-2">
+                    <fa-icon [icon]="faBookmark" class="bookmark"></fa-icon>
                   </div>
-                  <div class="icons col-1 star">
+                  <div class="icons col-2 star">
                     <fa-icon [icon]="faStar"></fa-icon>
                   </div>
 
@@ -73,7 +74,7 @@
     <section class="row extra-info">
       <div class="col-sm-12 col-md-12 col-lg-9 p-4">
         <div class="row justify-content-center">
-          <div class="col-sm-4 col-md-4 col-lg-2 mb-1" *ngFor="let item of movieDetails?.cast?.cast | slice:0:5">
+          <div class="col-sm-4 col-md-6 col-lg-2 mb-1" *ngFor="let item of movieDetails?.cast?.cast | slice:0:6">
             <div class="card card-cast">
               <img src="https://image.tmdb.org/t/p//w138_and_h175_face{{ item.profile_path }}" class="card-img-top"
                 alt="...">
@@ -86,7 +87,42 @@
         </div>
       </div>
       <div class=" col-sm-12 col-md-3 info-genres">
-        <h3>Facts</h3>
+        <section class="facts left_column">
+          <div class="social_links">
+
+            <div>
+              <a class="social_link" title="Visit Facebook" href="https://www.facebook.com/doctorsleepmovie"
+                target="_blank" rel="noopener" data-role="tooltip"><span class="social social-facebook"></span></a>
+            </div>
+
+
+            <div>
+              <a class="social_link" title="Visit Twitter" href="https://twitter.com/DoctorSleepFilm" target="_blank"
+                rel="noopener" data-role="tooltip"><span class="social social-twitter"></span></a>
+            </div>
+
+
+            <div>
+              <a class="social_link" title="Visit Instagram" href="https://instagram.com/DoctorSleepMovie/"
+                target="_blank" rel="noopener" data-role="tooltip"><span class="social social-instagram"></span></a>
+            </div>
+
+
+            <div class="homepage">
+              <a class="social_link" title="Visit Homepage" href="http://www.doctorsleepmovie.net/" target="_blank"
+                rel="noopener" data-role="tooltip"><span class="glyphicons glyphicons-link"></span></a>
+            </div>
+
+          </div>
+
+          <h4><bdi>Facts</bdi></h4>
+
+          <p><strong><bdi>Original Language</bdi></strong> English</p>
+          <p><strong><bdi>Runtime</bdi></strong> {{ movieDetails?.runtime }}</p>
+          <p><strong><bdi>Budget</bdi></strong> {{ movieDetails?.budget | currency }}</p>
+          <p><strong><bdi>Revenue</bdi></strong> {{ movieDetails?.revenue | currency }}</p>
+        </section>
+
         <div class="genres">
           <p class="title h4">Genres</p>
           <button class="btn btn-secondary" (click)="getMoviesByGenre(item.id, item.name)"

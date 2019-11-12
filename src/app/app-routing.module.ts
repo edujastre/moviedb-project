@@ -8,7 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   { path: 'movie-detail/:id', component: MovieDetailComponent },
   { path: 'genre/:genre-id', component: GenreComponent },
-  { path: '', component: HomeComponent}
+  { path: '', component: HomeComponent},
+  { path: '**', component: HomeComponent}
+
 ];
 
 @NgModule({

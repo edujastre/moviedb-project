@@ -16,9 +16,11 @@ export class MovieService {
   private baseUrl = environment.urlBase;
   private apikey = 'a26d8295626132e31ef949ff4ccef439';
 
-  async getMovieList(): Promise<Movies> {
+  async getMovieList(discover?: string): Promise<Movies> {
     let result;
-    await this.http.get<Movies>(this.baseUrl + `movie/now_playing?api_key=${this.apikey}&language=en-US&page=1`).toPromise().then(res => {
+    discover = discover.replace('/', '');
+    const type = discover ? discover : 'movie';
+    await this.http.get<Movies>(this.baseUrl + `${type}/popular?api_key=${this.apikey}&language=en-US&page=1`).toPromise().then(res => {
       result = res;
     });
 

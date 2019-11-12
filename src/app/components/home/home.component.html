@@ -13,9 +13,10 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text"><small class="text-muted">Release date {{ item.release_date }}</small></p>
+              <p class="card-text"><small class="release-date">{{ item.release_date || item.first_air_date }}</small></p>
               <p class="card-text">{{ item.overview }}...</p>
-              <p class="card-text more-info"><small class="text-muted">Release date {{ item.release_date }}</small></p>
+              <p class="card-text more-info">
+                  <a href="/movie-detail/{{ item.id }} ">More info</a></p>
             </div>
           </div>
         </div>
