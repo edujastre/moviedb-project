@@ -6,16 +6,18 @@
     text-transform: uppercase;
   }
 
-  .card-body {
-    padding: 5px;
-    font-size: 14px;
-  }
 
-  .card-cast {
+  &.card-cast {
     img {
-      min-height: 250px;
+      min-height: 180px;
       transition: ease-in 1s;
     }
+
+    .card-body {
+      padding: 5px;
+      font-size: 14px;
+    }
+
   }
 }
 main {
