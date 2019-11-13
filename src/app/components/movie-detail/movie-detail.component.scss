@@ -36,7 +36,8 @@ main {
     background-size: cover;
   }
   .card-details {
-    // min-height: 800px;
+    min-height: 200px;
+    transition: all 1s;
     // opacity: 0.7;
 
     .card-tool-bar {
@@ -135,9 +136,11 @@ main {
         height: auto;
         font-size: 14px;
 
-        button ~ button {
-          margin-left: 10px;
-        }
+        // button ~ button {
+        //   margin-left: 10px;
+        //   // margin-top: 10px;
+        //   padding: 5px;
+        // }
 
         li {
           list-style: none;

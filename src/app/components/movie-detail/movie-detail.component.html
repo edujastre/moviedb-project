@@ -5,8 +5,11 @@
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-12 col-lg-10 col-xl-8">
         <div class="card mb-3 card-details">
-          <div class="loading" *ngIf="!movieDetails">
-            loading ...
+          <div class="loading p-4" *ngIf="!movieDetails">
+            <div class="d-flex align-items-center">
+              <strong>Loading...</strong>
+              <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+            </div>
           </div>
           <div class="row no-gutters" [style.background-color]="'rgba(' + colorBackdrop + ', 1)'" [style.color]="'#fff'"
             *ngIf="movieDetails">
@@ -88,7 +91,7 @@
         </div>
       </div>
       <div class=" col-12 col-lg-3 info-genres p-2">
-        <section class="facts left_column">
+        <section class="facts left_column" *ngIf="type === 'movie'">
           <div class="social_links">
 
             <div>
@@ -124,10 +127,12 @@
           <p><strong><bdi>Revenue</bdi></strong> {{ movieDetails?.revenue | currency }}</p>
         </section>
 
-        <div class="genres">
+        <div class="genres col">
           <p class="title h4">Genres</p>
-          <button class="btn btn-secondary" (click)="getMoviesByGenre(item.id, item.name)"
+          <div class="row m-0">
+          <button class="btn btn-secondary col-auto m-1" (click)="getMoviesByGenre(item.id, item.name)"
             *ngFor="let item of movieDetails?.genres">{{ item.name }}</button>
+            </div>
         </div>
       </div>
     </section>
