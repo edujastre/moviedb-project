@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private movieService: MovieService, private location: Location, private router: Router) {
     this.router.events.subscribe((val) => {
-      console.log(val, location.path());
+      // console.log(val, location.path());
       this.type = location.path();
       if (this.location.path() !== '') {
         this.type = location.path();
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   async getMoviePopular() {
 
     await this.movieService.getMovieList(this.type).then(res => {
-      console.log(res);
+      // console.log(res);
       this.moviesPopular = res;
       this.moviesPopular.results.map(resMap => {
         resMap.overview = resMap.overview.split(' ').splice(0, 20).join(' ');
