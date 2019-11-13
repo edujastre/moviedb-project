@@ -27,6 +27,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "node-vibrant": "^3.1.4",
     "rxjs": "~6.4.0",
