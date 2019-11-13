@@ -14,6 +14,7 @@ To test the deployed version to Heroku, go URL to https://app-movies-data-base.h
 The WIki about this project can be acessed by https://github.com/edujastre/moviedb-project/wiki
 
 ## Future features to the next version
+* Search bar function
 * Mobile performance optimization according to Chrome Audits
 * Loadings and a better navigation
 * Pagination "more" addning to the list
