@@ -23,8 +23,15 @@
 
   }
 
-  .release-date {
+  .card-title {
     font-weight: bold;
-    font-size: 18px;
+    line-height: 1em;
+    margin-bottom: 0;
+
+  }
+
+  .release-date {
+    font-size: 1em;
+    color: rgba(0,0,0,0.6);
   }
 }
