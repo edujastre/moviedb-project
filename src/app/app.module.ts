@@ -10,6 +10,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { GenreComponent } from './components/genre/genre.component';
 import { HttpClientModule  } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RatingComponent } from './components/shared/rating/rating.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     FooterComponent,
     MovieDetailComponent,
-    GenreComponent
+    GenreComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

@@ -15,14 +15,14 @@ export class HomeComponent implements OnInit {
   type: any;
 
   constructor(private movieService: MovieService, private location: Location, private router: Router) {
-    router.events.subscribe((val) => {
+    this.router.events.subscribe((val) => {
       console.log(val, location.path());
       this.type = location.path();
-      // if (location.path() != '') {
-      //   this.router = location.path();
-      // } else {
-      //   this.router = 'Home'
-      // }
+      if (this.location.path() !== '') {
+        this.type = location.path();
+      } else {
+        this.type = 'movie';
+      }
     });
   }
 
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
         resMap.title = resMap.original_name ? resMap.original_name : resMap.title;
         resMap.release_date = this.dateName(new Date(
           resMap.first_air_date ? resMap.first_air_date : resMap.release_date
-        ))
+        ));
       });
     });
     console.log(this.moviesPopular);

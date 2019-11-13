@@ -27,9 +27,11 @@ export class MovieService {
     return result;
   }
 
-  async getMovieById(movieId): Promise<any> {
+  async getMovieById(movieId, discover?): Promise<any> {
     let result;
-    await this.http.get<any>(this.baseUrl + `movie/${movieId}?api_key=${this.apikey}`).toPromise().then(res => {
+    discover = discover.replace('/', '');
+    const type = discover ? discover : 'movie';
+    await this.http.get<any>(this.baseUrl + `${type}/${movieId}?api_key=${this.apikey}`).toPromise().then(res => {
       result = res;
 
       this.getMovieCast(movieId).then(cast => result.cast = cast);

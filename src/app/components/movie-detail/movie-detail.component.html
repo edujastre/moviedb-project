@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <!-- main movie content -->
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-12 col-lg-10 col-xl-8">
         <div class="card mb-3 card-details">
           <div class="loading" *ngIf="!movieDetails">
             loading ...
@@ -23,17 +23,17 @@
               <div class="card-body">
                 <h5 class="card-title">{{ movieDetails.title }} <small>({{movieDetails.releaseYear}})</small></h5>
                 <div class="card-tool-bar row">
-                  <div class="col-md-3 p-0 rating">
+                  <div class=" d-nonex d-sm-flex col-4 col-md-3 p-0">
                     <div class="main-rating">
                       <div class="value-rating">{{averagePercent}}%</div>
                       <svg viewBox="0 0 36 36" class="circular-chart">
                         <path class="circle-back" stroke-dasharray="100, 100" d="M18 2.0845
-                a 15.9155 15.9155 0 0 1 0 31.831
-                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
 
                         <path class="circle" [attr.stroke-dasharray]="averagePercentClass" d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831" />
 
                       </svg>
                     </div>
@@ -43,16 +43,17 @@
                     </div>
                   </div>
 
-                  <div class="icons col-2">
+
+                  <div class="icons col-2  col-md-2">
                     <fa-icon [icon]="faList"></fa-icon>
                   </div>
-                  <div class="icons col-2">
+                  <div class="icons col-2  col-md-2">
                     <fa-icon [icon]="faHeart"></fa-icon>
                   </div>
-                  <div class="icons col-2">
+                  <div class="icons col-2  col-md-2">
                     <fa-icon [icon]="faBookmark" class="bookmark"></fa-icon>
                   </div>
-                  <div class="icons col-2 star">
+                  <div class="icons col-2  col-md-2 star">
                     <fa-icon [icon]="faStar"></fa-icon>
                   </div>
 
@@ -72,9 +73,9 @@
       <div class="col-md-12">menu items</div>
     </section>
     <section class="row extra-info">
-      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+      <div class="col-12 col-lg-9 p-4">
         <div class="row justify-content-center">
-          <div class="col-sm-4 col-md-6 col-lg-2 mb-1" *ngFor="let item of movieDetails?.cast?.cast | slice:0:6">
+          <div class="col-sm-4 col-md-6 col-lg-3 col-xl-2 mb-1" *ngFor="let item of movieDetails?.cast?.cast | slice:0:5">
             <div class="card card-cast">
               <img src="https://image.tmdb.org/t/p//w138_and_h175_face{{ item.profile_path }}" class="card-img-top"
                 alt="...">
@@ -86,7 +87,7 @@
           </div>
         </div>
       </div>
-      <div class=" col-sm-12 col-md-3 info-genres">
+      <div class=" col-12 col-lg-3 info-genres p-2">
         <section class="facts left_column">
           <div class="social_links">
 

@@ -1,0 +1,19 @@
+<div class=" d-none d-sm-flex col-md-3 p-0">
+  <div class="main-rating">
+    <div class="value-rating">{{averagePercent}}%</div>
+    <svg viewBox="0 0 36 36" class="circular-chart">
+      <path class="circle-back" stroke-dasharray="100, 100" d="M18 2.0845
+a 15.9155 15.9155 0 0 1 0 31.831
+a 15.9155 15.9155 0 0 1 0 -31.831" />
+
+      <path class="circle" [attr.stroke-dasharray]="averagePercentClass" d="M18 2.0845
+    a 15.9155 15.9155 0 0 1 0 31.831
+    a 15.9155 15.9155 0 0 1 0 -31.831" />
+
+    </svg>
+  </div>
+
+  <div class="sub-title">
+    <div class="text">User<br>Score</div>
+  </div>
+</div>

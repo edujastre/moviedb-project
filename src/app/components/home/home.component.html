@@ -5,7 +5,7 @@
       <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <a href="/movie-detail/{{ item.id }} " class="img-movie">
+            <a href="{{type}}-detail/{{ item.id }} " class="img-movie">
               <img src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{ item.poster_path }}" class="card-img"
                 alt="...">
             </a>
@@ -16,7 +16,7 @@
               <p class="card-text"><small class="release-date">{{ item.release_date || item.first_air_date }}</small></p>
               <p class="card-text">{{ item.overview }}...</p>
               <p class="card-text more-info">
-                  <a href="/movie-detail/{{ item.id }} ">More info</a></p>
+                  <a href="{{type}}-detail/{{ item.id }} ">More info</a></p>
             </div>
           </div>
         </div>

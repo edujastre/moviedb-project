@@ -1,8 +1,14 @@
+@import '../shared/rating/rating.component.scss';
 .card {
   border: 0;
   .card-title {
     font-size: 2.4em;
     text-transform: uppercase;
+  }
+
+  .card-body {
+    padding: 5px;
+    font-size: 14px;
   }
 
   .card-cast {
@@ -44,26 +50,6 @@ main {
         color: #ccc;
       }
     }
-    .main-rating {
-      .value-rating {
-        position: relative;
-        top: 26px;
-        left: 25px;
-        font-size: 18px;
-        font-weight: bold;
-        z-index: 1;
-      }
-      .circular-chart {
-        display: block;
-        margin: 5px;
-        max-width: 100%;
-        max-height: 70px;
-        position: absolute;
-        top: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-      }
-    }
 
     .sub-title {
       align-self: center;
@@ -96,7 +82,7 @@ main {
       fa-icon {
         border-radius: 50%;
         border: 2px solid;
-        padding: 25px;
+        // padding: 25px;
         align-self: center;
 
         background-color: rgba(0, 0, 0, 0.5);
@@ -107,34 +93,13 @@ main {
           color: rgba(0, 0, 0, 0.8);
         }
 
-        &.bookmark {
-          padding: 25px 28px;
-        }
+        // &.bookmark {
+        //   padding: 25px 28px;
+        // }
       }
     }
 
-    .circle {
-      stroke: #4cc790;
-      fill: none;
-      stroke-width: 2.8;
-      stroke-linecap: round;
-      animation: progress 2s ease-out forwards;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
 
-    .circle-back {
-      stroke: #81a294;
-      fill: none;
-      stroke-width: 2.8;
-      stroke-linecap: round;
-      // animation: progress 1s ease-out forwards;
-    }
-
-    @keyframes progress {
-      0% {
-        stroke-dasharray: 0 100;
-      }
-    }
   }
 
   // section nav
@@ -166,6 +131,7 @@ main {
       .info-genres {
         background-color: #d7d7d7;
         height: auto;
+        font-size: 14px;
 
         button ~ button {
           margin-left: 10px;
@@ -174,6 +140,74 @@ main {
         li {
           list-style: none;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 37em) {
+  .icons {
+    fa-icon {
+      padding: 10px;
+      &.bookmark {
+        padding: 10px 12px;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .icons {
+    fa-icon {
+      padding: 25px;
+      &.bookmark {
+        padding: 25px 28px;
+      }
+    }
+  }
+}
+
+:host {
+  .main-rating {
+    .value-rating {
+      position: relative;
+      top: 26px;
+      left: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      z-index: 1;
+    }
+    .circular-chart {
+      display: block;
+      margin: 5px;
+      max-width: 70px;
+      max-height: 70px;
+      position: absolute;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+    }
+
+    .circle {
+      stroke: #4cc790;
+      fill: none;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      animation: progress 2s ease-out forwards;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .circle-back {
+      stroke: #81a294;
+      fill: none;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      // animation: progress 1s ease-out forwards;
+    }
+
+    @keyframes progress {
+      0% {
+        stroke-dasharray: 0 100;
       }
     }
   }

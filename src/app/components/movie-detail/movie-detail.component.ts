@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 import { faList, faHeart, faBookmark, faStar } from '@fortawesome/free-solid-svg-icons';
 import { UtilService } from 'src/app/services/util.service';
+import { Location } from '@angular/common';
 
 const Vibrant = require('node-vibrant');
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.scss']
+  styleUrls: ['./movie-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MovieDetailComponent implements OnInit {
   faList = faList;
@@ -22,25 +24,36 @@ export class MovieDetailComponent implements OnInit {
   averagePercentClass: string;
   colorBackdrop: any;
   imgUrl = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
+  type: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private movieService: MovieService,
-    private util: UtilService) { }
+    private util: UtilService,
+    private location: Location) {
+    this.router.events.subscribe((val) => {
+      this.type = this.location.path().split('-')[0].replace('/', '');
+      console.log(this.type);
+      // if (location.path() != '') {
+      //   this.router = location.path();
+      // } else {
+      //   this.router = 'Home'
+      // }
+    });
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.movieId = params.get('id');
       console.log(this.movieId);
 
-      this.movieService.getMovieById(this.movieId).then(res => {
+      this.movieService.getMovieById(this.movieId, this.type).then(res => {
         console.log(res);
         this.movieDetails = res;
-        // this.movieDetails.result.map(resultMap => ({
-        //   original_name: resultMap.title
-        // }));
-        this.movieDetails.releaseYear = new Date(this.movieDetails.release_date).getFullYear();
+        this.movieDetails.title = this.movieDetails.original_name ? this.movieDetails.original_name : this.movieDetails.title;
+        this.movieDetails.releaseYear =
+          new Date(this.movieDetails.first_air_date ? this.movieDetails.first_air_date : this.movieDetails.release_date).getFullYear();
         this.averagePercent = (this.movieDetails.vote_average * 10);
         this.averagePercentClass = `${this.averagePercent}, 100`;
         this.movieDetails.runtime = this.getRunTime(this.movieDetails.runtime);
