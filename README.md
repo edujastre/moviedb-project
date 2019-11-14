@@ -17,8 +17,8 @@ The WIki about this project can be acessed by https://github.com/edujastre/movie
 * Search bar function
 * Mobile performance optimization according to Chrome Audits
 * Loadings and a better navigation
-* Pagination "more" addning to the list
+* Pagination "more" adding to the list
 * A new footer
 * Backdrop image for the movies with correct colors
 * Test with Restangular
-* Reuzable components
+* Reusable components
