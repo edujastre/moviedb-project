@@ -51,7 +51,7 @@ export class MovieService {
 
   async getMovieByGenre(genre): Promise<any> {
     let result;
-    await this.http.get<any>(this.baseUrl + `discover/movie/?api_key=${this.apikey}&with_genres=${genre}`).toPromise().then(res => {
+    await this.http.get<any>(this.baseUrl + `discover/movie?api_key=${this.apikey}&with_genres=${genre}`).toPromise().then(res => {
       result = res;
     });
 
