@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movies } from 'src/app/models/movies';
 import { MovieService } from 'src/app/services/movie.service';
 import { ActivatedRoute } from '@angular/router';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-genre',
@@ -16,7 +17,7 @@ export class GenreComponent implements OnInit {
   genre: string[];
   genreName: any;
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private utilService: UtilService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -31,6 +32,15 @@ export class GenreComponent implements OnInit {
         this.moviesList.releaseYear = new Date(this.moviesList.release_date).getFullYear();
         this.averagePercent = (this.moviesList.vote_average * 10);
         this.averagePercentClass = `${this.averagePercent}, 100`;
+
+        this.moviesList.results.map(resMap => {
+          resMap.overview = resMap.overview.split(' ').splice(0, 20).join(' ');
+          resMap.title = resMap.original_name ? resMap.original_name : resMap.title;
+          resMap.release_date = this.utilService.dateName(new Date(
+            resMap.first_air_date ? resMap.first_air_date : resMap.release_date
+          ));
+          console.log(resMap.release_date);
+        });
       });
     });
   }
@@ -41,6 +51,11 @@ export class GenreComponent implements OnInit {
       this.moviesList = res;
       this.moviesList.results.map(resMap => {
         resMap.overview = resMap.overview.split(' ').splice(0, 20).join(' ');
+        resMap.title = resMap.original_name ? resMap.original_name : resMap.title;
+        resMap.release_date = this.utilService.dateName(new Date(
+          resMap.first_air_date ? resMap.first_air_date : resMap.release_date
+        ));
+        console.log(resMap.release_date);
       });
     });
     console.log(this.moviesList);

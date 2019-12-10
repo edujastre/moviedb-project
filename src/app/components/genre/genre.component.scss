@@ -1,6 +1,17 @@
 .card {
   img {
-    width: 140px;
+    width: auto;
+    height: 140px;
+  }
+
+  .card-body {
+    .card-title {
+      font-weight: bold;
+    }
+    .release_date {
+      font-size: 14px;
+      margin-left: 10px;
+    }
   }
 }
 .more-info {
